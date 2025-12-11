@@ -13,15 +13,16 @@
         async function loadData() {
 
             // GET CURRENT PRICE
-            const priceRes = await fetch("http://127.0.0.1:8000/current");
-            const priceData = await priceRes.json();
+const priceRes = await fetch("https://crypto-fullstack-project.onrender.com/current");
+const priceData = await priceRes.json();
 
-            document.getElementById("price").innerHTML =
-                "Current BTC Price: $" + priceData.current_price;
+document.getElementById("price").innerHTML =
+    "Current BTC Price: $" + priceData.current_price;
 
-            // GET HISTORY
-            const histRes = await fetch("http://127.0.0.1:8000/history?limit=50");
-            const histData = await histRes.json();
+// GET HISTORY
+const histRes = await fetch("https://crypto-fullstack-project.onrender.com/history?limit=50");
+const histData = await histRes.json();
+
 
             const labels = histData.map(item => item.timestamp);
             const prices = histData.map(item => item.price);
